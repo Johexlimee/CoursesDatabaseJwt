@@ -30,9 +30,9 @@ public class SecurityConfig {
 	public JdbcUserDetailsManager usersDetailsJdbc() {
 		DriverManagerDataSource ds=new DriverManagerDataSource();
 		ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
-		ds.setUrl("jdbc:mysql://localhost:3306/user_security_encr");
-		ds.setUsername("root");
-		ds.setPassword("");
+		ds.setUrl("jdbc:mysql://uniem.mysql.database.azure.com:3306/user_security_encr");
+		ds.setUsername("Johexlime");
+		ds.setPassword("Uniempresarial2024.$");
 		
 		JdbcUserDetailsManager jdbcDetails=new JdbcUserDetailsManager(ds);
 		
