@@ -37,7 +37,7 @@ public class SwaggerConfig implements WebMvcConfigurer {
 		.allowedOrigins("https://coursesdatabasejwt-dafqcybghecugbe2.eastus-01.azurewebsites.net") 
 		.allowedMethods("GET", "POST", "PUT", "DELETE") 
 		.allowedHeaders("*") 
-		.allowCredentials(true); 
+		.allowCredentials(false); 
 	}
 }
 
