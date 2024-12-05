@@ -7,10 +7,12 @@ import io.swagger.v3.oas.models.security.SecurityRequirement;
 import io.swagger.v3.oas.models.security.SecurityScheme; 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
 @Configuration
-public class SwaggerConfig {
+public class SwaggerConfig implements WebMvcConfigurer {
 	private SecurityScheme createAPIKeyScheme() {
 	    return new SecurityScheme().type(SecurityScheme.Type.HTTP)
 	        .bearerFormat("JWT")
@@ -27,5 +29,16 @@ public class SwaggerConfig {
 						 .description("En el siguiente proyecto se van a usar las APIs creadas junto a la profesora Kellys\n\n"
 						 		+ "<strong>Ayudaaaaaaaa no se que mas poner</strong> Mi github: [Johexlimee](https://github.com/Johexlimee)")
 						 .termsOfService("http://swagger.io/terms/")); 
-		}
+	}
+	
+	@Override 
+	public void addCorsMappings(CorsRegistry registry) { 
+		registry.addMapping("/**") 
+		.allowedOrigins("https://coursesdatabasejwt-dafqcybghecugbe2.eastus-01.azurewebsites.net") 
+		.allowedMethods("GET", "POST", "PUT", "DELETE") 
+		.allowedHeaders("*") 
+		.allowCredentials(true); 
+	}
 }
+
+
